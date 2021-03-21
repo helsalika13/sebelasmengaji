@@ -15,5 +15,11 @@ class Progress extends Model
         'tanggal',
         'ayat_ke',
         'surat_ke',
+        'class_id'
     ];
+
+    public function classes()
+    {
+        return $this->belongsTo('App\Models\Classes');
+    }
 }

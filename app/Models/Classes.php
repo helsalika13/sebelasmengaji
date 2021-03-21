@@ -21,4 +21,9 @@ class Classes extends Model
     {
         return $this->belongsTo('App\Models\Teacher');
     }
+
+    public function classes()
+    {
+        return $this->hasMany('App\Models\Progress');
+    }
 }

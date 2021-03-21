@@ -15,9 +15,13 @@ class CreateProgressesTable extends Migration
     {
         Schema::create('progresses', function (Blueprint $table) {
             $table->id();
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->string('ayat_ke');
             $table->string('surat_ke');
+            $table->foreignId('class_id')
+                ->constrained('classes')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

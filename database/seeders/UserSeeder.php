@@ -60,5 +60,17 @@ class UserSeeder extends Seeder
                 'role' => 'admin'
             ]
         );
+
+        User::firstOrCreate(
+            ['id' => 5],
+            [
+                'name' => 'M Hapidh',
+                'username' => 'mhapidh',
+                'email' => 'mhapidh@gmail.com',
+                'nip_nis' => '1806510123',
+                'password' => Hash::make('srohani'),
+                'role' => 'srohani'
+            ]
+        );
     }
 }

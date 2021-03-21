@@ -7,7 +7,7 @@ use App\Http\Controllers\QuranController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\UserController;
-
+use App\Http\Controllers\TransaksiController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -43,4 +43,7 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     Route::post('/class', [ClassController::class, 'create']);
     Route::put('/class/{id}', [ClassController::class, 'update']);
     Route::delete('/class/{id}', [ClassController::class, 'delete']);
+    //progress
+    Route::get('/progress', [TransaksiController::class, 'getprogres']);
+    Route::post('/progress', [TransaksiController::class, 'progres']);
 });
