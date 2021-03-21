@@ -4,16 +4,27 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Classes;
+use App\Models\Teacher;
 
 class ClassController extends Controller
 {
     public function index()
     {
-        $class = Classes::with('teacher')->OrderBy("id", "ASC")->paginate(10);;
-        return response()->json([
-            'success' => true,
-            'data' => $class
-        ], 201);
+        $user  = auth('api')->user();
+        if ($user->role == 'superadmin') {
+            $class = Classes::with('teacher')->OrderBy("id", "ASC")->paginate(10);;
+            return response()->json([
+                'success' => true,
+                'data' => $class
+            ], 201);
+        } else if ($user->role == 'admin') {
+            $teacherid = Teacher::where('nip', $user->nip_nis)->first();
+            $class = Classes::where('teacher_id', $teacherid->id)->with('teacher')->OrderBy("id", "ASC")->paginate(10);
+            return response()->json([
+                'success' => true,
+                'data' => $class
+            ], 201);
+        }
     }
 
     public function create(Request $request)

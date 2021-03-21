@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
                 'name' => 'Super Admin',
                 'username' => 'superadmin',
                 'email' => 'superadmin@gmail.com',
+                'nip_nis' => '',
                 'password' => Hash::make('superadmin'),
                 'role' => 'superadmin'
             ]
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
                 'name' => 'Admin',
                 'username' => 'admin',
                 'email' => 'admin@gmail.com',
+                'nip_nis' => '',
                 'password' => Hash::make('admin'),
                 'role' => 'admin'
             ]
@@ -41,8 +43,21 @@ class UserSeeder extends Seeder
                 'name' => 'SRohani',
                 'username' => 'srohani',
                 'email' => 'srohani@gmail.com',
+                'nip_nis' => '',
                 'password' => Hash::make('srohani'),
                 'role' => 'srohani'
+            ]
+        );
+
+        User::firstOrCreate(
+            ['id' => 4],
+            [
+                'name' => 'Titin S.Pd',
+                'username' => 'titinspd',
+                'email' => 'titin@gmail.com',
+                'nip_nis' => '00123456789',
+                'password' => Hash::make('admin'),
+                'role' => 'admin'
             ]
         );
     }
