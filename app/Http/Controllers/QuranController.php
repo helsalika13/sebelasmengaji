@@ -21,4 +21,14 @@ class QuranController extends Controller
             'data' => $qurans
         ], 201);
     }
+
+    public function quransurat($no_surat)
+    {
+        $qurans = Quran::where('no_surat', $no_surat)->get();
+
+        return response()->json([
+            'success' => true,
+            'data' => $qurans
+        ], 201);
+    }
 }

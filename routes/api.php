@@ -28,11 +28,13 @@ Route::group([
 ], function () {
     Route::post('/login', [AuthController::class, 'login']);
     Route::get('/qurans', [QuranController::class, 'index']);
+    Route::get('/qurans/{no_surat}', [QuranController::class, 'quransurat']);
 });
 
 Route::group(['middleware' => ['jwt.verify']], function () {
     //get profile
     Route::get('/profile', [UserController::class, 'profile']);
+    Route::post('/profile/update', [UserController::class, 'updateProfile']);
     //teacher
     Route::get('/teacher', [TeacherController::class, 'index']);
     Route::post('/teacher', [TeacherController::class, 'create']);
