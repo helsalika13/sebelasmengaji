@@ -14,4 +14,9 @@ class Feedback extends Model
     protected $fillable = [
         'feedback',
     ];
+
+    public function feedback()
+    {
+        return $this->hasMany('App\Models\Penilaian');
+    }
 }

@@ -46,4 +46,8 @@ Route::group(['middleware' => ['jwt.verify']], function () {
     //progress
     Route::get('/progress', [TransaksiController::class, 'getprogres']);
     Route::post('/progress', [TransaksiController::class, 'progres']);
+    //penilaian
+    Route::get('/progress/penilaian', [TransaksiController::class, 'getprogresnilai']);
+    Route::get('/penilaian', [TransaksiController::class, 'getPenilaian']);
+    Route::post('/penilaian', [TransaksiController::class, 'penilaian']);
 });

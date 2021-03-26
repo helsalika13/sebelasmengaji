@@ -30,13 +30,15 @@ class TeacherController extends Controller
         $teacher = Teacher::create([
             'nip' => $request->nip,
             'name' => $request->name,
-            'contact' => $request->contact
+            'contact' => $request->contact,
+            'address' => $request->address
         ]);
 
         User::create([
             'name' => $request->name,
             'username' => str_replace(' ', '', $request->name),
             'email' => $request->contact,
+            'nip_nis'   => $request->nip,
             'role' => 'admin',
             'password' => Hash::make('admin') //default password
         ]);

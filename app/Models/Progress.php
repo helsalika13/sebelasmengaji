@@ -18,8 +18,13 @@ class Progress extends Model
         'class_id'
     ];
 
-    public function classes()
+    public function kelas()
     {
-        return $this->belongsTo('App\Models\Classes');
+        return $this->belongsTo(Classes::class);
+    }
+
+    public function progress()
+    {
+        return $this->hasMany('App\Models\Penilaian');
     }
 }
