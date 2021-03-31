@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="loading" lang="en">
-@include('layoutsadmin.header')
+@include('layoutsSadmin.header')
 
-@include('layoutsadmin.navbar')
+@include('layoutsSadmin.navbar')
 @yield('content')
-@include('layoutsadmin.footer')
+@include('layoutsSadmin.footer')
 
 </body>
 

@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\QuranWebController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SuperAdminController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +32,20 @@ Route::get('/tes', function () {
 Route::get('/pro', function () {
     return view('adminprofile.profile');
 });
+Route::get('/super', function () {
+    return view('layoutsSadmin.master');
+});
 Route::get('/quran', [QuranWebController::class, 'quran'])->name('quran');
 
-Auth::routes();
-Route::group([
-    'middleware' => 'auth',
-], function () {
-    Route::get('book/delete/{id}', [BookController::class, 'delete'])->name('deleteBook');
-});
+//superadmin
+Route::get('/dataguru', [SuperAdminController::class, 'dataguru'])->name('dataguru');
+Route::get('/add-teacher', [SuperAdminController::class, 'createguru'])->name('addguru');
+Route::post('/store-teacher', [SuperAdminController::class, 'storeguru'])->name('storeguru');
+Route::get('/edit-teacher/{id}', [SuperAdminController::class, 'editguru'])->name('editguru');
+Route::post('/update-teacher/{id}', [SuperAdminController::class, 'updateguru'])->name('updateguru');
+Route::get('/delete-teacher/{id}', [SuperAdminController::class, 'deleteguru'])->name('deleteguru');
+
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [AdminController::class, 'index'])->name('admin')->middleware('auth');

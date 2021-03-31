@@ -25,7 +25,7 @@
                             <ul class="nav side-menu">
                                 <li><a><i class="fa fa-teacher"></i> Guru <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="form.html">Data Guru</a></li>
+                                        <li><a href="{{ route('dataguru') }}">Data Guru</a></li>
                                         <li><a href="form.html">Akun Guru</a></li>
                                     </ul>
                                 </li>
@@ -34,7 +34,6 @@
                                         <li><a href="form.html">General Form</a></li>
                                     </ul>
                                 </li>
-                                <li><a href=""><i class="fa fa-tasks"></i> Progress </a></li>
                             </ul>
                         </div>
                     </div>

@@ -28,25 +28,142 @@
                             <p class="card-text">Pilih surat untuk menampilkan ayat</p>
                         </header><br><br>
 
-                        <h6>Pilih surat !</h6>
-                        @foreach ($quran as $q)
-                        <table>
-                            <th>ayat</th>
-
-                            <tr>
-                                <td>{{$q->ayat}}
-                                </td>
-                            </tr>
-                        </table>
-
-
-                        @endforeach
+                        <h4>Pilih Surat</h4>
+                        <hr>
+                        <div class="">
+                            <table class="">
+                                <thead>
+                                    <tr>
+                                        <th>Surat ke</th>
+                                        <th>Surat</th>
+                                        <th>Ayat</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">002</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Vis ac commodo adipiscing arcu aliquet.</td>
+                                        <td>19.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="row">
+                                                <div class="3u 12u$(small)">
+                                                    <ul class="actions vertical small">
+                                                        <li><a href="#" class="button small">001</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>Al - Fatihah</td>
+                                        <td>7</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <div class="row">
                             <div class="3u 12u$(small)">
                                 <ul class="actions vertical small">
                                     <li><a href="#" class="button small">Alfatihah</a></li>
-                                    <li><a href="#" class="button small">Albaqarah</a></li>
-                                    <li><a href="#" class="button small"></a></li>
                                 </ul>
                             </div>
                         </div>
