@@ -17,6 +17,7 @@
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_title">
+                        <a href="{{ route('addguru') }}" type="button" class="btn btn-primary">Tambah Guru</a>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -34,9 +35,7 @@
                                             <tr>
                                                 <th>NIP</th>
                                                 <th>Nama</th>
-                                                <th>Alamat</th>
-                                                <th>Email</th>
-                                                <th colspan="3">Aksi</th>
+                                                <th colspan="2">Aksi</th>
                                             </tr>
                                         </thead>
                                         @foreach ($teachers as $teacher)
@@ -44,13 +43,11 @@
                                             <tr>
                                                 <td>{{ $teacher->nip }}</td>
                                                 <td>{{ $teacher->name }}</td>
-                                                <td>{{ $teacher->address }}</td>
-                                                <td>{{ $teacher->contact }}</td>
                                                 <td>
-                                                    <a href="{{ route('editguru', $teacher->id)}}"><i class="fa fa-edit"></i></a>
+                                                    <a href="{{ route('createakun', $teacher->nip)}}"><i class="fa fa-plus"></i></a>
                                                 </td>
                                                 <td>
-                                                    <a href="{{ route('deleteguru', $teacher->id)}}" onclick="return confirm('Apakah yakin akan menghapus ?')"><i class="fa fa-trash"></i></a>
+                                                    <a href="#" onclick="return confirm('Apakah yakin akan menghapus ?')"><i class="fa fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>

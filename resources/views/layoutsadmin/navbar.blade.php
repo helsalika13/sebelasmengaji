@@ -16,20 +16,19 @@
                         <div class="menu_section">
                             <h3>Profile</h3>
                             <ul class="nav side-menu">
-                                <li><a href=""><i class="fa fa-user"></i> Profile</a></li>
-                                <li><a href=""><i class="fa fa-sign-out"></i> Log Out </a></li>
+                                <li><a href="{{route('adminprofile')}}"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Log Out </a></li>
                             </ul>
                         </div>
                         <div class="menu_section">
                             <h3>Data</h3>
                             <ul class="nav side-menu">
-                                <li><a href=""><i class="fa fa-home"></i> Home</a></li>
-                                <li><a><i class="fa fa-users"></i> Kelas <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="form.html">General Form</a></li>
-                                    </ul>
+                                <li><a href="{{route('admin')}}"><i class="fa fa-home"></i> Home</a></li>
+                                <li><a href="{{route('getkelas')}}"><i class="fa fa-users"></i> Kelas </span></a>
+
                                 </li>
-                                <li><a href=""><i class="fa fa-tasks"></i> Progress </a></li>
+                                <li><a href="{{route('progress')}}"><i class="fa fa-tasks"></i> Progress </a></li>
+                                <li><a href="{{route('penilaian')}}"><i class="fa fa-clipboard"></i> Penilaian </a></li>
                             </ul>
                         </div>
                     </div>

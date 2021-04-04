@@ -88,4 +88,24 @@ class TransaksiController extends Controller
             ], 400);
         }
     }
+
+    public function progresdelete($id)
+    {
+        $progress =  Progress::find($id);
+
+            if (!$progress) {
+            $data = [
+                "message" => "progress not found",
+            ]; 
+        } else {
+            $progress->delete();
+            $data = [
+                "message"  => "success deleted",
+                "id"       => $id,
+            ];
+        }
+        
+        return response()->json($data, 200);
+    }
+    
 }

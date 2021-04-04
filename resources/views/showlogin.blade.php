@@ -34,7 +34,7 @@
                 <section class="login_content">
                     <div class="card">
                         <div class="card-body">
-                            <form action="{{ route('login') }}" method="post">
+                            <form action="{{ route('ilogin') }}" method="post">
                                 @csrf
                                 <h1>Silahkan Login</h1>
                                 <div>

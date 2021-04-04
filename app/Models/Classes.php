@@ -15,6 +15,8 @@ class Classes extends Model
         'class',
         'sie_rohani',
         'teacher_id',
+        'nis',
+        'contact'
     ];
 
     public function teacher()

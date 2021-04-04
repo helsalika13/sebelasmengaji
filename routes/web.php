@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\QuranWebController;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SuperAdminController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\MasukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,29 +24,43 @@ Route::get('/', function () {
     return view('landingpage');
 });
 
-Route::get('/showlogin', function () {
-    return view('showlogin');
-});
-Route::get('/tes', function () {
-    return view('layoutsadmin.master');
-});
-Route::get('/pro', function () {
-    return view('adminprofile.profile');
-});
-Route::get('/super', function () {
-    return view('layoutsSadmin.master');
-});
 Route::get('/quran', [QuranWebController::class, 'quran'])->name('quran');
 
-//superadmin
-Route::get('/dataguru', [SuperAdminController::class, 'dataguru'])->name('dataguru');
-Route::get('/add-teacher', [SuperAdminController::class, 'createguru'])->name('addguru');
-Route::post('/store-teacher', [SuperAdminController::class, 'storeguru'])->name('storeguru');
-Route::get('/edit-teacher/{id}', [SuperAdminController::class, 'editguru'])->name('editguru');
-Route::post('/update-teacher/{id}', [SuperAdminController::class, 'updateguru'])->name('updateguru');
-Route::get('/delete-teacher/{id}', [SuperAdminController::class, 'deleteguru'])->name('deleteguru');
+Route::get('showlogin', [MasukController::class, 'showFormLogin'])->name('showlogin');
+Route::post('ilogin', [MasukController::class, 'login'])->name('ilogin');
 
+Route::group(['middleware' => 'auth'], function () {
 
-Auth::routes();
+    Route::get('/ilogout', [MasukController::class, 'logout'])->name('logout');
+    Route::get('/superprofile', [MasukController::class, 'profile'])->name('sprofile');
+    Route::post('/update-profile/{id}', [MasukController::class, 'updateprofile'])->name('updateprofile');
 
-Route::get('/home', [AdminController::class, 'index'])->name('admin')->middleware('auth');
+    //superadmin
+    Route::get('/homesadmin', [SuperAdminController::class, 'index'])->name('superadmin');
+    Route::get('/dataguru', [SuperAdminController::class, 'dataguru'])->name('dataguru');
+    Route::get('/add-teacher', [SuperAdminController::class, 'createguru'])->name('addguru');
+    Route::post('/store-teacher', [SuperAdminController::class, 'storeguru'])->name('storeguru');
+    Route::get('/edit-teacher/{id}', [SuperAdminController::class, 'editguru'])->name('editguru');
+    Route::post('/update-teacher/{id}', [SuperAdminController::class, 'updateguru'])->name('updateguru');
+    Route::get('/delete-teacher/{id}', [SuperAdminController::class, 'deleteguru'])->name('deleteguru');
+    Route::get('/akun-teacher', [SuperAdminController::class, 'akunguru'])->name('akunguru');
+    Route::get('/create-akun/{nip}', [SuperAdminController::class, 'createakun'])->name('createakun');
+    Route::get('/datakelas', [SuperAdminController::class, 'datakelas'])->name('datakelas');
+    Route::get('/add-kelas', [SuperAdminController::class, 'createkelas'])->name('addkelas');
+    Route::post('/store-kelas', [SuperAdminController::class, 'storekelas'])->name('storekelas');
+    Route::get('/edit-kelas/{id}', [SuperAdminController::class, 'editkelas'])->name('editkelas');
+    Route::post('/update-kelas/{id}', [SuperAdminController::class, 'updatekelas'])->name('updatekelas');
+    Route::get('/delete-kelas/{id}', [SuperAdminController::class, 'deletekelas'])->name('deletekelas');
+
+    //admin
+    Route::get('/home', [AdminController::class, 'index'])->name('admin');
+    Route::get('/getkelas', [AdminController::class, 'getkelas'])->name('getkelas');
+    Route::get('/progress', [AdminController::class, 'progress'])->name('progress');
+    Route::get('/progress/{id}', [AdminController::class, 'progresskelas'])->name('progresskelas');
+    Route::get('/feedback/{id}', [AdminController::class, 'feedback'])->name('feedback');
+    Route::post('/create-feedback', [AdminController::class, 'createfeedback'])->name('createfeedback');
+    Route::get('/penilaian', [AdminController::class, 'penilaian'])->name('penilaian');
+    Route::get('/exportexcel', [AdminController::class, 'exportexcel'])->name('exportexcel');
+    Route::get('/profile', [AdminController::class, 'adminprofile'])->name('adminprofile');
+    Route::post('/update-profile/{id}', [AdminController::class, 'updatepadminrofile'])->name('updateadminprofile');
+});

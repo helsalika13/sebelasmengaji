@@ -19,7 +19,7 @@ class Role
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::user();
-        dd($user);
+
         if (Auth::check() && Auth::user()->role == 'superadmin') {
             return $next($request);
         } else if (Auth::check() && Auth::user()->role == 'admin') {

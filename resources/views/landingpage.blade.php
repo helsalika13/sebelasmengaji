@@ -15,7 +15,7 @@
         <div class="inner">
             <a href="index.html" class="logo"><strong>Sebelas</strong> Mengaji</a>
             <nav id="nav">
-                <a href="#" class="icon fa-sign-in"> Login</a>
+                <a href="{{route('showlogin')}}" class="icon fa-sign-in"> Login</a>
             </nav>
             <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
         </div>

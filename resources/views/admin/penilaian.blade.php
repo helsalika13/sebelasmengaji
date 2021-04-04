@@ -1,4 +1,4 @@
-@extends('layoutsSadmin.master')
+@extends('layoutsadmin.master')
 
 @section('content')
 
@@ -7,7 +7,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Mengelola <small>Data Guru</small></h3>
+                <h3>Penilaian</h3>
             </div>
         </div>
 
@@ -29,30 +29,24 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card-box table-responsive">
-                                    <table id="datatable" class="table table-bordered" style="width:100%">
+                                    <a href="{{route('exportexcel')}}" type='button' class="btn btn-success">
+                                        <li class="fa fa-print"></li> Cetak Excel
+                                    </a>
+                                    <br><br>
+                                    <table class="table table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>NIP</th>
-                                                <th>Nama</th>
-                                                <th>Alamat</th>
-                                                <th>Email</th>
-                                                <th colspan="3">Aksi</th>
+                                                <th>Tanggal</th>
+                                                <th>Kelas</th>
+                                                <th>Feedback</th>
                                             </tr>
                                         </thead>
-                                        @foreach ($teachers as $teacher)
+                                        @foreach ($penilaian as $p)
                                         <tbody>
                                             <tr>
-                                                <td>{{ $teacher->nip }}</td>
-                                                <td>{{ $teacher->name }}</td>
-                                                <td>{{ $teacher->address }}</td>
-                                                <td>{{ $teacher->contact }}</td>
-                                                <td>
-                                                    <a href="{{ route('editguru', $teacher->id)}}"><i class="fa fa-edit"></i></a>
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('deleteguru', $teacher->id)}}" onclick="return confirm('Apakah yakin akan menghapus ?')"><i class="fa fa-trash"></i></a>
-                                                </td>
-                                            </tr>
+                                                <td>{{ $p->tanggal }}</td>
+                                                <td>{{ $p->class }}</td>
+                                                <td>{{ $p->feedback }}</td>
                                         </tbody>
                                         @endforeach
                                     </table>

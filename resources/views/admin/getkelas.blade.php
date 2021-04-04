@@ -1,4 +1,4 @@
-@extends('layoutsSadmin.master')
+@extends('layoutsadmin.master')
 
 @section('content')
 
@@ -7,7 +7,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Mengelola <small>Data Guru</small></h3>
+                <h3>Mengelola <small>Data Kelas</small></h3>
             </div>
         </div>
 
@@ -32,25 +32,22 @@
                                     <table id="datatable" class="table table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>NIP</th>
-                                                <th>Nama</th>
-                                                <th>Alamat</th>
+                                                <th>Kelas</th>
+                                                <th>Seksi Rohani</th>
+                                                <th>NIS</th>
                                                 <th>Email</th>
                                                 <th colspan="3">Aksi</th>
                                             </tr>
                                         </thead>
-                                        @foreach ($teachers as $teacher)
+                                        @foreach ($kelas as $k)
                                         <tbody>
                                             <tr>
-                                                <td>{{ $teacher->nip }}</td>
-                                                <td>{{ $teacher->name }}</td>
-                                                <td>{{ $teacher->address }}</td>
-                                                <td>{{ $teacher->contact }}</td>
+                                                <td>{{ $k->class }}</td>
+                                                <td>{{ $k->sie_rohani }}</td>
+                                                <td>{{ $k->nis }}</td>
+                                                <td>{{ $k->kelasemail }}</td>
                                                 <td>
-                                                    <a href="{{ route('editguru', $teacher->id)}}"><i class="fa fa-edit"></i></a>
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('deleteguru', $teacher->id)}}" onclick="return confirm('Apakah yakin akan menghapus ?')"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('progresskelas', $k->id)}}"><i class="fa fa-tasks"></i> Lihat Progress Kelas</a>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -1,4 +1,4 @@
-@extends('layoutsSadmin.master')
+@extends('layoutsadmin.master')
 
 @section('content')
 
@@ -7,7 +7,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Mengelola <small>Data Guru</small></h3>
+                <h3>Mengelola <small>Progress</small></h3>
             </div>
         </div>
 
@@ -32,25 +32,22 @@
                                     <table id="datatable" class="table table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>NIP</th>
-                                                <th>Nama</th>
-                                                <th>Alamat</th>
-                                                <th>Email</th>
-                                                <th colspan="3">Aksi</th>
+                                                <th>Tanggal</th>
+                                                <th>Ayat</th>
+                                                <th>Surat</th>
+                                                <th>Kelas</th>
+                                                <th colspan="2">Aksi</th>
                                             </tr>
                                         </thead>
-                                        @foreach ($teachers as $teacher)
+                                        @foreach ($progress as $p)
                                         <tbody>
                                             <tr>
-                                                <td>{{ $teacher->nip }}</td>
-                                                <td>{{ $teacher->name }}</td>
-                                                <td>{{ $teacher->address }}</td>
-                                                <td>{{ $teacher->contact }}</td>
+                                                <td>{{ $p->tanggal }}</td>
+                                                <td>{{ $p->ayat_ke }}</td>
+                                                <td>{{ $p->surat_ke }}</td>
+                                                <td>{{ $p->class }}</td>
                                                 <td>
-                                                    <a href="{{ route('editguru', $teacher->id)}}"><i class="fa fa-edit"></i></a>
-                                                </td>
-                                                <td>
-                                                    <a href="{{ route('deleteguru', $teacher->id)}}" onclick="return confirm('Apakah yakin akan menghapus ?')"><i class="fa fa-trash"></i></a>
+                                                    <a href="{{ route('feedback', $p->progressid) }}"><i class="fa fa-plus"></i> Tambah Feedback </a>
                                                 </td>
                                             </tr>
                                         </tbody>

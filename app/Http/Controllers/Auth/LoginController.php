@@ -43,7 +43,6 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $inputVal = $request->all();
-        dd($inputVal);
 
         if (Auth::attempt(array('username' => $inputVal['username'], 'password' => $inputVal['password']))) {
             if (auth()->user()->role == 'superadmin') {

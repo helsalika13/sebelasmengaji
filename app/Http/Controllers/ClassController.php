@@ -32,6 +32,7 @@ class ClassController extends Controller
         $request->validate([
             'class'       => 'required',
             'sie_rohani'  => 'required',
+            'nis'         => 'required',
             'teacher_id'  => 'required',
         ]);
 
