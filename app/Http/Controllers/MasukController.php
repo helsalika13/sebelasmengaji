@@ -37,6 +37,8 @@ class MasukController extends Controller
         }
     }
 
+
+
     public function logout()
     {
         Auth::logout(); // menghapus session yang aktif
@@ -49,7 +51,7 @@ class MasukController extends Controller
             $user = User::where('username', Auth::user()->username)->get();
             return view('sadmin.profile', compact('user'));
         } else if (Auth::user()->role == 'admin') {
-            $user = Teacher::where('nip_nis', Auth::user()->nip_nis)->get();
+            $user = User::where('nip_nis', Auth::user()->nip_nis)->get();
             return view('admin.profile', compact('user'));
         }
     }
@@ -63,6 +65,10 @@ class MasukController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return redirect()->route('profile');
+        if (Auth::user()->role == 'superadmin') {
+            return redirect()->route('sprofile');
+        } else if (Auth::user()->role == 'admin') {
+            return redirect()->route('profile');
+        }
     }
 }

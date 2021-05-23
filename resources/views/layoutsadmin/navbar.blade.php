@@ -16,7 +16,7 @@
                         <div class="menu_section">
                             <h3>Profile</h3>
                             <ul class="nav side-menu">
-                                <li><a href="{{route('adminprofile')}}"><i class="fa fa-user"></i> Profile</a></li>
+                                <li><a href="{{route('profile')}}"><i class="fa fa-user"></i> Profile</a></li>
                                 <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Log Out </a></li>
                             </ul>
                         </div>

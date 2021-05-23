@@ -25,6 +25,7 @@ Route::get('/', function () {
 });
 
 Route::get('/quran', [QuranWebController::class, 'quran'])->name('quran');
+Route::get('/quran-surat/{id}', [QuranWebController::class, 'quransurat'])->name('quransurat');
 
 Route::get('showlogin', [MasukController::class, 'showFormLogin'])->name('showlogin');
 Route::post('ilogin', [MasukController::class, 'login'])->name('ilogin');
@@ -33,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/ilogout', [MasukController::class, 'logout'])->name('logout');
     Route::get('/superprofile', [MasukController::class, 'profile'])->name('sprofile');
-    Route::post('/update-profile/{id}', [MasukController::class, 'updateprofile'])->name('updateprofile');
+    Route::post('/update-sprofile/{id}', [MasukController::class, 'updateprofile'])->name('updatesprofile');
 
     //superadmin
     Route::get('/homesadmin', [SuperAdminController::class, 'index'])->name('superadmin');
@@ -61,6 +62,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/create-feedback', [AdminController::class, 'createfeedback'])->name('createfeedback');
     Route::get('/penilaian', [AdminController::class, 'penilaian'])->name('penilaian');
     Route::get('/exportexcel', [AdminController::class, 'exportexcel'])->name('exportexcel');
-    Route::get('/profile', [AdminController::class, 'adminprofile'])->name('adminprofile');
-    Route::post('/update-profile/{id}', [AdminController::class, 'updatepadminrofile'])->name('updateadminprofile');
+    Route::get('/profile', [MasukController::class, 'profile'])->name('profile');
+    Route::post('/update-profile/{id}', [MasukController::class, 'updateprofile'])->name('updateprofile');
 });

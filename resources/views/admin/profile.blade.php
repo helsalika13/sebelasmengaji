@@ -1,4 +1,4 @@
-@extends('layoutsSadmin.master')
+@extends('layoutsadmin.master')
 
 @section('content')
 
@@ -27,7 +27,7 @@
                     </div>
                     <div class="x_content">
                         @foreach ($user as $u)
-                        <form class="" action="{{ route('updatesprofile', $u->id) }}" method="post" novalidate>
+                        <form class="" action="{{ route('updateprofile', $u->id) }}" method="post" novalidate>
                             @csrf
                             <span class="section">Personal Info</span>
 
@@ -60,7 +60,7 @@
 
                             <div class="item form-group">
                                 <div class="col-md-6 col-sm-6 offset-md-3">
-                                    <a href="{{route('superadmin')}}" type="button" class="btn btn-primary" type="button">Kembali</a>
+                                    <a href="{{route('admin')}}" type="button" class="btn btn-primary" type="button">Kembali</a>
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
                             </div>
